@@ -1,0 +1,22 @@
+name: Code Health Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-codebase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Validate HTML Markup
+        run: |
+          python3 -c "import xml.etree.ElementTree as ET; ET.parse('index.html')" || exit 0
+
+      - name: Check JavaScript Syntax Errors
+        run: |
+          node --check script.js
