@@ -1,0 +1,12 @@
+# Editor & System Files
+.DS_Store
+Thumbs.db
+*.swp
+*.tmp
+
+# IDE / Editor Settings
+.vscode/
+.idea/
+
+# Local Environment Defaults
+*.log
